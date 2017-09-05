@@ -8,34 +8,53 @@
                         http://www.springframework.org/schema/context  
                         http://www.springframework.org/schema/context/spring-context.xsd">
                  
-          
-          
-    <!--       
+    <!-- *******************配置spring对控制层的管理 start******************* -->
     
-    	组件扫描,即获取含有指定注释的类为为bean;
-    	可以扫描controller,service..。
     
-	-->
-    <context:component-scan base-package="com.zk.ssm.controller"></context:component-scan>      
-	
-      
+    
+    
+    
+    <!-- *********配置注解驱动 start********* -->
 	<!-- 
 		使用注解驱动可以代替注解映射器和注解适配器的配置;
 		默认加载了许多参数方法,比如json转化解析器;
 		实际开发用<mvc:annotation-driven></mvc:annotation-driven>
 	-->
 	<mvc:annotation-driven></mvc:annotation-driven>
+    <!-- *********配置注解驱动 end********* -->
 	
 	
 	
 	
 	
+    <!-- *********配置试图解析器 start********* -->
 	<!-- *视图解析器 --> 
 	<!-- **解析jsp,默认使用jstl标签 -->            
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     	<property name="suffix" value=".jsp"></property>
     	<property name="prefix" value="/WEB-INF/view/"></property>
     </bean>
+    <!-- *********配置试图解析器 end********* -->
     
-       
+    
+    
+    
+    
+    
+    <!-- *********配置controller的bean end********* -->
+    <!--       
+    	组件扫描,即获取含有指定注释的类为为bean;
+    	可以扫描controller,service..。
+	-->
+    <context:component-scan base-package="com.zk.ssm.controller"></context:component-scan>      
+    <!-- *********配置controller的bean end********* -->
+    
+    
+    
+    
+    
+    
+    
+    
+	<!-- *******************配置spring对控制层的管理 end******************* -->  
 </beans>  

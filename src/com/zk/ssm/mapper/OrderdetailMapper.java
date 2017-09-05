@@ -1,7 +1,7 @@
 package com.zk.ssm.mapper;
 
-import com.zk.ssm.bean.Orderdetail;
-import com.zk.ssm.bean.OrderdetailExample;
+import com.zk.ssm.po.Orderdetail;
+import com.zk.ssm.po.OrderdetailExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

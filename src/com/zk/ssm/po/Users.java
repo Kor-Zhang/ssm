@@ -1,4 +1,4 @@
-package com.zk.ssm.bean;
+package com.zk.ssm.po;
 
 public class Users {
     private String id;

@@ -8,7 +8,7 @@
 
 	
 
-	<!-- 配置springmvc前端控制器 -->
+	<!-- ********配置springmvc前端控制器 start******** -->
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -23,10 +23,16 @@
 		<servlet-name>springmvc</servlet-name>
 		<url-pattern>*.action</url-pattern>
 	</servlet-mapping>
+	<!-- ********配置springmvc前端控制器 end******** -->
 	
 	
 	
-	<!-- 配置spring -->
+	
+	
+	
+	
+	
+	<!-- ********配置spring start******** -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring/spring-base.xml</param-value>
@@ -36,5 +42,6 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
+	<!-- ********配置spring end******** -->
 	
 </web-app>

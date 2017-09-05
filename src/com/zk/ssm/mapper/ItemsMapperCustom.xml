@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zk.ssm.mapper.ItemsMapperCustom">
+	<!-- 定义商品的sql片段 -->
+	<sql id="query_items_where">
+		<!-- 商品的查询条件通过itemqueryvo包装的属性传递 -->
+		<if test="itemsCustom!=null">
+			<if test="itemsCustom.username!=null and itemsCustom.username!=''">
+				items.name like '%${itemsCustom.username}%'
+			</if>
+		</if>
+		
+	</sql>
+	
+	<select id="selectItems" parameterType="ItemsQueryVo" resultType="ItemsCustom">
+		select * from items
+		<where>
+			<include refid="query_items_where"></include>
+		</where> 
+	</select>
+	
+</mapper>

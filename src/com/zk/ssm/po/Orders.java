@@ -1,4 +1,4 @@
-package com.zk.ssm.bean;
+package com.zk.ssm.po;
 
 import java.util.Date;
 
