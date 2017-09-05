@@ -1,66 +1,45 @@
 package com.zk.ssm.bean;
 
-import java.io.Serializable;
+import java.math.BigDecimal;
 
-/**
- * Title:OrderDetail
- * <p>
- * Description:数据库中ORDERDETAIL表对映的订单详情类
- * <p>
- * @author Kor_Zhang
- * @date 2017年9月5日 上午10:23:05
- * @version 1.0
- */
-public class OrderDetail implements Serializable {
+public class Orderdetail {
+    private String orderid;
 
-	/**
-	 * serialVersionUID
-	 */
-	private static final long serialVersionUID = -7614909649042976729L;
+    private String itemid;
 
-	private Orders order;//订单
-	private Items item;//商品
-	private Integer quantity;//数量
-	private Double price;//价格
-	public Orders getOrder() {
-		return order;
-	}
-	public void setOrder(Orders order) {
-		this.order = order;
-	}
-	public Items getItem() {
-		return item;
-	}
-	public void setItem(Items item) {
-		this.item = item;
-	}
-	public Integer getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
-	public Double getPrice() {
-		return price;
-	}
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-	public OrderDetail() {
-		super();
-	}
-	public OrderDetail(Orders order, Items item, Integer quantity, Double price) {
-		super();
-		this.order = order;
-		this.item = item;
-		this.quantity = quantity;
-		this.price = price;
-	}
-	@Override
-	public String toString() {
-		return "OrderDetail [order=" + order + ", item=" + item + ", quantity="
-				+ quantity + ", price=" + price + "]";
-	}
-	
-	
+    private Integer quantity;
+
+    private BigDecimal price;
+
+    public String getOrderid() {
+        return orderid;
+    }
+
+    public void setOrderid(String orderid) {
+        this.orderid = orderid == null ? null : orderid.trim();
+    }
+
+    public String getItemid() {
+        return itemid;
+    }
+
+    public void setItemid(String itemid) {
+        this.itemid = itemid == null ? null : itemid.trim();
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 }

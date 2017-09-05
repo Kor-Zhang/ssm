@@ -28,6 +28,13 @@
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.2.2</version>
 		</dependency>
+		<!-- mybatis逆向生成 -->
+		<dependency>
+			<groupId>org.mybatis.generator</groupId>
+			<artifactId>mybatis-generator-core</artifactId>
+			<version>1.3.5</version>
+	
+		</dependency>
 		<!-- mybatis end -->
 
 
@@ -41,7 +48,7 @@
 		<!-- 数据库连接驱动 end -->
 
 		<!-- struts2 start -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.apache.struts</groupId>
 			<artifactId>struts2-core</artifactId>
 			<version>${version_strus2}</version>
@@ -55,7 +62,7 @@
 			<groupId>org.apache.struts</groupId>
 			<artifactId>struts2-convention-plugin</artifactId>
 			<version>${version_strus2}</version>
-		</dependency>
+		</dependency> -->
 		<!-- struts2 end -->
 
 		<!-- spring start -->
