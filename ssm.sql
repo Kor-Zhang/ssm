@@ -1,12 +1,12 @@
 ﻿prompt PL/SQL Developer import file
-prompt Created on 2017年9月5日 by Kor_Zhang
+prompt Created on 2017年9月6日 by Kor_Zhang
 set feedback off
 set define off
 prompt Creating ITEMS...
 create table ITEMS
 (
-  ID          CHAR(40) not null,
-  NAME        CHAR(40) not null,
+  ID          NVARCHAR2(40) not null,
+  NAME        NVARCHAR2(40) not null,
   DESCRIPTION CHAR(50) not null,
   PRICE       NUMBER(5,2) not null,
   QUANTITY    NUMBER(5) not null
@@ -41,7 +41,7 @@ alter table ITEMS
 prompt Creating USERS...
 create table USERS
 (
-  ID       CHAR(40) not null,
+  ID       NVARCHAR2(40) not null,
   USERNAME CHAR(15) not null,
   PASSWORD CHAR(15) not null
 )
@@ -75,10 +75,10 @@ alter table USERS
 prompt Creating ORDERS...
 create table ORDERS
 (
-  ID         CHAR(40) not null,
+  ID         NVARCHAR2(40) not null,
   CREATETIME TIMESTAMP(6) not null,
   STATUS     NUMBER(5) not null,
-  USERID     CHAR(40) not null
+  USERID     NVARCHAR2(40) not null
 )
 tablespace SYSTEM
   pctfree 10
@@ -113,8 +113,8 @@ alter table ORDERS
 prompt Creating ORDERDETAIL...
 create table ORDERDETAIL
 (
-  ORDERID  CHAR(40) not null,
-  ITEMID   CHAR(40) not null,
+  ORDERID  NVARCHAR2(40) not null,
+  ITEMID   NVARCHAR2(40) not null,
   QUANTITY NUMBER(5) not null,
   PRICE    NUMBER(5,2) not null
 )
@@ -139,9 +139,9 @@ alter table ORDERDETAIL
 
 prompt Loading ITEMS...
 insert into ITEMS (ID, NAME, DESCRIPTION, PRICE, QUANTITY)
-values ('1                                       ', 'zkkk                                    ', 'aaa                                               ', 77.8, 100);
+values ('1', '刘二狗', '很可爱                                         ', 999, 122);
 insert into ITEMS (ID, NAME, DESCRIPTION, PRICE, QUANTITY)
-values ('2                                       ', '222                                     ', 'aaa                                               ', 27.8, 222);
+values ('2', '妙脆角', '非常好吃                                      ', 25.33, 55);
 commit;
 prompt 2 records loaded
 prompt Loading USERS...
