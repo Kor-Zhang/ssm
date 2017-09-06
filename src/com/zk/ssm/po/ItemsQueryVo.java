@@ -41,6 +41,10 @@ public class ItemsQueryVo{
 		this.item = item;
 		this.itemsCustom = itemsCustom;
 	}
+
+	public ItemsQueryVo() {
+		super();
+	}
 	
 	
 }

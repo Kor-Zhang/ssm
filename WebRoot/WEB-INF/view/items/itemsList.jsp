@@ -8,6 +8,12 @@
 <title>商品列表</title>
 </head>
 <body>
+
+	<form action="<c:url value='/items/selectItems.action'></c:url>">
+		搜索商品名：<input name="itemsCustom.name"/>
+		<input type="submit" value="搜索"/>
+	</form>
+	<br/>
 	<c:forEach items="${items}" var="i">
 		名称：${i.name},描述：${i.description},价格：${i.price},数量：${i.quantity}
 		<a href="<c:url value='/items/editAItem.action?id=${i.id}'></c:url>">修改</a>

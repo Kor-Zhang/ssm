@@ -34,7 +34,6 @@ public class ItemsService implements ItemsServiceI {
 		
 		BeanUtils.copyProperties(item, itemc);
 		
-//		return (ItemsCustom) itemsMapper.selectByPrimaryKey(id);
 		return itemc;
 	}
 
@@ -52,13 +51,13 @@ public class ItemsService implements ItemsServiceI {
 	 * @see com.zk.ssm.service.ItemsServiceI#updateAItem(java.lang.String, com.zk.ssm.po.ItemsCustom)
 	 */
 	@Override
-	public void updateAItem(String id, ItemsCustom itemCustom) throws Exception {
+	public void updateAItem(String id,ItemsQueryVo itemsQueryVo) throws Exception {
 		
 		Util.eject(id == null || id.equals(""), "id不能为空");
 		
-		itemCustom.setId(id);
+		itemsQueryVo.getItemsCustom().setId(id);
 		
-		itemsMapper.updateByPrimaryKeySelective(itemCustom);
+		itemsMapper.updateByPrimaryKeySelective(itemsQueryVo.getItemsCustom());
 		
 	}
 

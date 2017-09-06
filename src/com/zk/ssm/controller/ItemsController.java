@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zk.ssm.po.ItemsCustom;
+import com.zk.ssm.po.ItemsQueryVo;
 import com.zk.ssm.service.ItemsServiceI;
 
 /**
@@ -31,9 +32,9 @@ public class ItemsController {
 
 	//限制访问方法可以为POST,GET
 	@RequestMapping(value="/selectItems",method={RequestMethod.GET,RequestMethod.POST})
-	public String selectItems(Model model) throws Exception{
+	public String selectItems(Model model,ItemsQueryVo itemsQueryVo) throws Exception{
 
-		List<ItemsCustom> items = itemsService.selectItems(null);
+		List<ItemsCustom> items = itemsService.selectItems(itemsQueryVo);
 		
 		
 		model.addAttribute("items",items);
@@ -80,17 +81,17 @@ public class ItemsController {
 	 * @return
 	 */
 	@RequestMapping("/updateAItem")
-	public String updateAItem(String id,ItemsCustom itemsCustom){
+	public String updateAItem(String id,ItemsQueryVo itemsQueryVo){
 		
 		try {
 			
-			itemsService.updateAItem(id, itemsCustom);
+			itemsService.updateAItem(id, itemsQueryVo);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return "forward:/items/selectItems.action";
+		return "redirect:/items/selectItems.action";
 	}
 	
 }

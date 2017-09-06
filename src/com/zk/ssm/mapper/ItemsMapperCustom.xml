@@ -5,8 +5,8 @@
 	<sql id="query_items_where">
 		<!-- 商品的查询条件通过itemqueryvo包装的属性传递 -->
 		<if test="itemsCustom!=null">
-			<if test="itemsCustom.username!=null and itemsCustom.username!=''">
-				items.name like '%${itemsCustom.username}%'
+			<if test="itemsCustom.name!=null and itemsCustom.name!=''">
+				items.name like '%${itemsCustom.name}%'
 			</if>
 		</if>
 		
