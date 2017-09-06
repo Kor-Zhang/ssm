@@ -2,13 +2,20 @@ package com.zk.ssm.po;
 
 import java.math.BigDecimal;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Items {
     private String id;
-
+    //校验名字长度
+    @Size(min=1,max=40,message="{items.name.length.error}")
     private String name;
 
+    //非空验证
+    @NotNull(message="{items.description.notnull}")
     private String description;
-
+    
+    
     private BigDecimal price;
 
     private Integer quantity;

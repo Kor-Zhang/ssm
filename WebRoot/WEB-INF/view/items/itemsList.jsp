@@ -8,7 +8,7 @@
 <title>商品列表</title>
 </head>
 <body>
-
+	
 	<form action="<c:url value='/items/selectItems.action'></c:url>">
 		搜索商品名：<input name="itemsCustom.name"/>
 		<input type="submit" value="搜索"/>

@@ -56,10 +56,10 @@ public interface ItemsServiceI {
 	 * @date 2017年9月6日 上午8:45:13
 	 * @version 1.0
 	 * @param id
-	 * @param itemsQueryVo
+	 * @param itemsCustom
 	 * @throws Exception 
 	 */
-	public void updateAItem(String id,ItemsQueryVo itemsQueryVo) throws Exception;
+	public void updateAItem(String id,ItemsCustom itemsCustom) throws Exception;
 
 
 

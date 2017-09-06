@@ -33,4 +33,18 @@ public class Util {
 			throw new Exception(msg);
 		}
 	}
+	
+	/**
+	 * Title:
+	 * <p>
+	 * Description:抛出一个无信息的异常
+	 * <p>
+	 * @author Kor_Zhang
+	 * @date 2017年9月6日 下午7:17:30
+	 * @version 1.0
+	 * @throws Exception
+	 */
+	public static void eject() throws Exception {
+		throw new Exception("");
+	}
 }

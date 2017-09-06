@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.zk.ssm.po.ItemsCustom;
 import com.zk.ssm.po.ItemsQueryVo;
 import com.zk.ssm.service.ItemsServiceI;
+import com.zk.ssm.util.Util;
 
 /**
  * Title:ItemsController
@@ -80,15 +84,35 @@ public class ItemsController {
 	 * @version 1.0
 	 * @return
 	 */
+	//在需要校验的pojo添加注解@Validated
+	//pojo后加BindingResult
+	//一个pojo的@Validated对应其BindingResult(一前一后)
 	@RequestMapping("/updateAItem")
-	public String updateAItem(String id,ItemsQueryVo itemsQueryVo){
-		
+	public String updateAItem(Model model,String id,@Validated ItemsCustom itemsCustom,BindingResult bindingResult){
+
 		try {
+		//获取结果信息
+			if(bindingResult.hasErrors()){
+				List<ObjectError> allErrors = bindingResult.getAllErrors();
+				for (ObjectError oe :allErrors) {
+					System.err.println(oe.getDefaultMessage());
+				}
+				//出错
+				model.addAttribute("allErrors", allErrors);
+				
+				Util.eject();
+				
+			}
 			
-			itemsService.updateAItem(id, itemsQueryVo);
+			itemsService.updateAItem(id, itemsCustom);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			
+			//出错,到达修改页面
+			model.addAttribute("id",id);
+			
+			return "forward:/items/editAItem.action";
 		}
 		
 		return "redirect:/items/selectItems.action";
