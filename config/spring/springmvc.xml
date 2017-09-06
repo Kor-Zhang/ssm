@@ -37,10 +37,28 @@
 		默认加载了许多参数方法,比如json转化解析器;
 		实际开发用<mvc:annotation-driven></mvc:annotation-driven>
 	-->
-	<mvc:annotation-driven></mvc:annotation-driven>
+	<mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
     <!-- *********配置注解驱动 end********* -->
     
     
+    
+    
+	
+	
+	
+	<!-- *********配置幻转换器 start********* -->
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="converters">
+			<list>
+				<bean class="com.zk.ssm.converter.IntegerConverter"></bean>
+			</list>
+		</property>
+	
+	</bean>
+	<!-- *********配置幻转换器 end********* -->
+	
+	
+	
     
     
     
