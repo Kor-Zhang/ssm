@@ -88,15 +88,13 @@ public class ItemsController {
 	//pojo后加BindingResult
 	//一个pojo的@Validated对应其BindingResult(一前一后)
 	@RequestMapping("/updateAItem")
-	public String updateAItem(Model model,String id,@Validated ItemsCustom itemsCustom,BindingResult bindingResult){
+	public String updateAItem(Model model,String id,@Validated ItemsQueryVo itemsQueryVo,BindingResult bindingResult){
 
 		try {
 		//获取结果信息
 			if(bindingResult.hasErrors()){
 				List<ObjectError> allErrors = bindingResult.getAllErrors();
-				for (ObjectError oe :allErrors) {
-					System.err.println(oe.getDefaultMessage());
-				}
+
 				//出错
 				model.addAttribute("allErrors", allErrors);
 				
@@ -104,13 +102,13 @@ public class ItemsController {
 				
 			}
 			
-			itemsService.updateAItem(id, itemsCustom);
+			itemsService.updateAItem(id, itemsQueryVo);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			
+
+			model.addAttribute("id", id);
 			//出错,到达修改页面
-			model.addAttribute("id",id);
 			
 			return "forward:/items/editAItem.action";
 		}
