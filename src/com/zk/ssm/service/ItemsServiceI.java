@@ -28,4 +28,36 @@ public interface ItemsServiceI {
 	 * @throws Exception
 	 */
 	public List<ItemsCustom> selectItems(ItemsQueryVo vo) throws Exception;
+	
+	
+	
+	/**
+	 * Title:selectAItem
+	 * <p>
+	 * Description:通过主键获取一个item
+	 * <p>
+	 * @author Kor_Zhang
+	 * @date 2017年9月6日 上午8:41:26
+	 * @version 1.0
+	 * @param id
+	 * @return
+	 */
+	public ItemsCustom selectAItem(String id) throws Exception;
+	
+	
+	
+	
+	/**
+	 * Title:updateAItem
+	 * <p>
+	 * Description:通过updateAItem的id修改商品
+	 * <p>
+	 * @author Kor_Zhang
+	 * @date 2017年9月6日 上午8:45:13
+	 * @version 1.0
+	 * @param id
+	 * @param itemCustom
+	 * @throws Exception 
+	 */
+	public void updateAItem(String id,ItemsCustom itemCustom) throws Exception;
 }

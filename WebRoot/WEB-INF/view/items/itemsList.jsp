@@ -5,11 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>商品列表</title>
 </head>
 <body>
 	<c:forEach items="${items}" var="i">
-		${i}<br/>
+		名称：${i.name},描述：${i.description},价格：${i.price},数量：${i.quantity}
+		<a href="<c:url value='/items/editAItem.action?id=${i.id}'></c:url>">修改</a>
+		<br/>
 	</c:forEach>
 </body>
 </html>
