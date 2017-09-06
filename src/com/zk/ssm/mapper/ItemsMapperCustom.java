@@ -19,4 +19,16 @@ public interface ItemsMapperCustom {
 	 * @return
 	 */
 	public List<ItemsCustom> selectItems(ItemsQueryVo vo) throws Exception;
+
+	/**
+	 * Title:deleteItems
+	 * <p>
+	 * Description:批量删除商品
+	 * <p>
+	 * @author Kor_Zhang
+	 * @date 2017年9月6日 下午3:17:42
+	 * @version 1.0
+	 * @param deleteIds
+	 */
+	public void deleteItems(String[] deleteIds);
 }

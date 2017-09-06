@@ -60,4 +60,19 @@ public interface ItemsServiceI {
 	 * @throws Exception 
 	 */
 	public void updateAItem(String id,ItemsQueryVo itemsQueryVo) throws Exception;
+
+
+
+	/**
+	 * Title:deleteItems
+	 * <p>
+	 * Description:批量删除商品
+	 * <p>
+	 * @author Kor_Zhang
+	 * @date 2017年9月6日 下午3:17:00
+	 * @version 1.0
+	 * @param deleteIds
+	 * @throws Exception 
+	 */
+	public void deleteItems(String[] deleteIds) throws Exception;
 }

@@ -13,11 +13,17 @@
 		搜索商品名：<input name="itemsCustom.name"/>
 		<input type="submit" value="搜索"/>
 	</form>
+	
+	<form action="<c:url value='/items/deleteItems.action'></c:url>">
+		<c:forEach items="${items}" var="i">
+			<input name="deleteIds" type="checkbox" value="${i.id}"/>
+			名称：${i.name},描述：${i.description},价格：${i.price},数量：${i.quantity}
+			<a href="<c:url value='/items/editAItem.action?id=${i.id}'></c:url>">修改</a>
+			<br/>
+		</c:forEach>
+		<input type="submit" value="批量删除"/>
+	</form>
 	<br/>
-	<c:forEach items="${items}" var="i">
-		名称：${i.name},描述：${i.description},价格：${i.price},数量：${i.quantity}
-		<a href="<c:url value='/items/editAItem.action?id=${i.id}'></c:url>">修改</a>
-		<br/>
-	</c:forEach>
+	
 </body>
 </html>

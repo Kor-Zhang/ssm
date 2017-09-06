@@ -62,6 +62,18 @@ public class ItemsService implements ItemsServiceI {
 	}
 
 
+	@Override
+	public void deleteItems(String[] deleteIds) throws Exception {
+
+		//非空的deleteIds
+		
+		Util.eject(deleteIds == null, "数据不能为空");
+		
+		
+		itemsMapperCustom.deleteItems(deleteIds);
+	}
+
+
 	
 
 }

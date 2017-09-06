@@ -16,15 +16,17 @@ public class Util {
 	public static final Logger l = Logger.getLogger(Util.class);
 
 	/**
-	 * Title:如果表达式成立,抛出异常
-	 * <p>
-	 * Description:
-	 * <p>
 	 * 
+	 * Title:eject
+	 * <p>
+	 * Description:如果表达式成立,抛出异常
+	 * <p>
 	 * @author Kor_Zhang
-	 * @date 2017年9月2日 上午9:43:52
+	 * @date 2017年9月6日 下午3:56:51
 	 * @version 1.0
 	 * @param expr
+	 * @param msg
+	 * @throws Exception
 	 */
 	public static void eject(Boolean expr, String msg) throws Exception {
 		if (expr) {

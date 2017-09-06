@@ -94,4 +94,29 @@ public class ItemsController {
 		return "redirect:/items/selectItems.action";
 	}
 	
+	/**
+	 * Title:deleteItems
+	 * <p>
+	 * Description:批量删除商品
+	 * <p>
+	 * @author Kor_Zhang
+	 * @date 2017年9月6日 下午3:15:13
+	 * @version 1.0
+	 * @param deleteIds
+	 * @return
+	 */
+	@RequestMapping("deleteItems")
+	public String deleteItems(String[] deleteIds){
+
+		try {
+			
+			itemsService.deleteItems(deleteIds);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return "redirect:/items/selectItems.action";
+	}
 }

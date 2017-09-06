@@ -11,12 +11,22 @@
 		</if>
 		
 	</sql>
-	
+	<!-- 根据条件查找商品 -->
 	<select id="selectItems" parameterType="ItemsQueryVo" resultType="ItemsCustom">
 		select * from items
 		<where>
 			<include refid="query_items_where"></include>
 		</where> 
 	</select>
-	
+	<!-- 根据id批量删除商品 -->
+	<!-- ***********
+		数组必须写成array 
+		线性表必须写成list
+	-->
+	<delete id="deleteItems" parameterType="String">
+		delete from items where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+	</delete>
 </mapper>
