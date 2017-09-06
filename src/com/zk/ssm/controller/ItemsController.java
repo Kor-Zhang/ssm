@@ -16,6 +16,7 @@ import com.zk.ssm.po.ItemsCustom;
 import com.zk.ssm.po.ItemsQueryVo;
 import com.zk.ssm.service.ItemsServiceI;
 import com.zk.ssm.util.Util;
+import com.zk.ssm.validation.ValidGroup0;
 
 /**
  * Title:ItemsController
@@ -88,7 +89,8 @@ public class ItemsController {
 	//pojo后加BindingResult
 	//一个pojo的@Validated对应其BindingResult(一前一后)
 	@RequestMapping("/updateAItem")
-	public String updateAItem(Model model,String id,@Validated ItemsQueryVo itemsQueryVo,BindingResult bindingResult){
+	public String updateAItem(Model model,String id,
+			@Validated(value={ValidGroup0.class}) ItemsQueryVo itemsQueryVo,BindingResult bindingResult){
 
 		try {
 		//获取结果信息
