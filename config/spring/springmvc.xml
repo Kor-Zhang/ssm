@@ -16,6 +16,28 @@
 	
 	
 	
+	
+	<!-- 配置拦截器 start -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<!-- **表示子孙包及类 -->
+			<mvc:mapping path="/**"/>
+			<bean class="com.zk.ssm.interceptor.HandlerInterceptor1"></bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="com.zk.ssm.interceptor.HandlerInterceptor2"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<!-- 配置拦截器 end -->	
+
+	
+	
+	
+	
+	
+	
+	
 	<!-- 配置springmvc在url-pattern为"/"时不拦截的对静态资源的访问 start -->
 	<mvc:resources location="/plugin/" mapping="/plugin/**"></mvc:resources>
 	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
