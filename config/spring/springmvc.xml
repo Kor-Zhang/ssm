@@ -16,12 +16,12 @@
 	
 	
 	
-	<!-- 配置springmvc不解析的静态资源 start -->
+	<!-- 配置springmvc在url-pattern为"/"时不拦截的对静态资源的访问 start -->
 	<mvc:resources location="/plugin/" mapping="/plugin/**"></mvc:resources>
 	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
 	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
 	<mvc:resources location="/img/" mapping="/img/**"></mvc:resources>
-	<!-- 配置springmvc不解析的静态资源 end -->
+	<!-- 配置springmvc在url-pattern为"/"时不拦截的对静态资源的访问 end -->
 	
 	
 	
