@@ -18,16 +18,17 @@
 	
 	
 	<!-- 配置拦截器 start -->
+	<!-- 
+		注意：拦截器执行的顺序和配置顺序有关;
+		这是一个连接器链,前面的拦截器没有放行,后面的拦截器将不会被执行;
+	-->
 	<mvc:interceptors>
+		<!-- **表示子孙包及类 -->
 		<mvc:interceptor>
-			<!-- **表示子孙包及类 -->
-			<mvc:mapping path="/**"/>
-			<bean class="com.zk.ssm.interceptor.HandlerInterceptor1"></bean>
+			<mvc:mapping path="/**" />
+			<bean class="com.zk.ssm.interceptor.UsersStatusInterceptor"></bean>
 		</mvc:interceptor>
-		<mvc:interceptor>
-			<mvc:mapping path="/**"/>
-			<bean class="com.zk.ssm.interceptor.HandlerInterceptor2"></bean>
-		</mvc:interceptor>
+
 	</mvc:interceptors>
 	<!-- 配置拦截器 end -->	
 
@@ -38,12 +39,12 @@
 	
 	
 	
-	<!-- 配置springmvc在url-pattern为"/"时不拦截的对静态资源的访问 start -->
+	<!-- 配置springmvc在url-pattern为"/"时springmvc不会对静态资源的访问进行处理,直接放行 start -->
 	<mvc:resources location="/plugin/" mapping="/plugin/**"></mvc:resources>
 	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
 	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
 	<mvc:resources location="/img/" mapping="/img/**"></mvc:resources>
-	<!-- 配置springmvc在url-pattern为"/"时不拦截的对静态资源的访问 end -->
+	<!-- 配置springmvc在url-pattern为"/"时springmvc不会对静态资源的访问进行处理,直接放行 end -->
 	
 	
 	
