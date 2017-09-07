@@ -1,6 +1,8 @@
 package com.zk.ssm.controller;
 
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,12 +10,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.alibaba.druid.stat.TableStat.Mode;
+import com.alibaba.druid.util.IOUtils;
 import com.zk.ssm.po.ItemsCustom;
 import com.zk.ssm.po.ItemsQueryVo;
 import com.zk.ssm.service.ItemsServiceI;
@@ -97,7 +99,9 @@ public class ItemsController {
 	//一个pojo的@Validated对应其BindingResult(一前一后)
 	@RequestMapping("/updateAItem")
 	public String updateAItem(Model model,
-			@Validated(value={ValidGroup0.class}) ItemsQueryVo itemsQueryVo,BindingResult bindingResult){
+			@Validated(value={ValidGroup0.class}) ItemsQueryVo itemsQueryVo,
+			BindingResult bindingResult,
+			MultipartFile item_pic){
 		
 		try {
 		//获取结果信息
@@ -110,6 +114,23 @@ public class ItemsController {
 				Util.eject();
 				
 			}
+			
+			//上传图片
+			if(item_pic != null && !item_pic.isEmpty()){
+				//存储图片的物理路径
+				String pic_path = "E:\\upload\\temp\\";
+				
+				//生成新的名称,如a.jpg
+				String newFileName = itemsQueryVo.getItemsCustom().getId() + ".png";
+				
+				//写入的文件
+				File dest = new File(pic_path + newFileName);
+				
+				//写入
+				item_pic.transferTo(dest);
+				
+			}
+			
 			
 			itemsService.updateAItem(itemsQueryVo);
 			

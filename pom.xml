@@ -9,7 +9,7 @@
 	<description>这是一个spring+springmvc+mybatis的事例项目</description>
 	<!-- 属性配置 start -->
 	<properties>
-		<version_spring>3.1.2.RELEASE</version_spring>
+		<version_spring>3.1.2.RELEASE</version_spring> 
 		<version_strus2>2.3.4.1</version_strus2>
 	</properties>
 	<!-- 属性配置 end -->
@@ -140,6 +140,16 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.1</version>
 		</dependency>
 		<dependency>
 			<groupId>dom4j</groupId>

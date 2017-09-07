@@ -12,13 +12,17 @@
 	<c:forEach items="${allErrors}" var="e">
 		<label style="color: red;">${e.defaultMessage}</label>
 	</c:forEach>
-	
-	<form action="<c:url value='/items/updateAItem.action'></c:url>">
+	<form enctype="multipart/form-data" method="post" action="<c:url value='/items/updateAItem.action'></c:url>">
 	<input type="hidden" name="itemsCustom.id" value="${itemsCustom.id}"/>
 	名称：<input name="itemsCustom.name" value="${itemsCustom.name}"/>
 	描述：<input name="itemsCustom.description" value="${itemsCustom.description}"/>
 	价格：<input name="itemsCustom.price" value="${itemsCustom.price}"/>
 	数量：<input name="itemsCustom.quantity" value="${itemsCustom.quantity}"/>
+	<br/>
+	<img style="width:100px;height:100px;" src="/pic/${itemsCustom.id}.png"/>
+	<input name="item_pic" type="file"/>
+	<br/>
+	<br/>
 	<input type="submit"/>
 	</form>
 </body>
