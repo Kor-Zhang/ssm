@@ -1,5 +1,5 @@
 ﻿prompt PL/SQL Developer import file
-prompt Created on 2017年9月6日 by Kor_Zhang
+prompt Created on 2017年9月7日 by Kor_Zhang
 set feedback off
 set define off
 prompt Creating ITEMS...
@@ -139,9 +139,9 @@ alter table ORDERDETAIL
 
 prompt Loading ITEMS...
 insert into ITEMS (ID, NAME, DESCRIPTION, PRICE, QUANTITY)
-values ('1', '刘二狗', '很可爱                                         ', 999, 122);
+values ('1', 'asdad', 'asd                                               ', .2, 1);
 insert into ITEMS (ID, NAME, DESCRIPTION, PRICE, QUANTITY)
-values ('2', '妙脆角', '非常好吃                                      ', 25.33, 55);
+values ('2', '222', 'aaa                                               ', 27.8, 222);
 commit;
 prompt 2 records loaded
 prompt Loading USERS...
