@@ -30,9 +30,12 @@ public class ItemsService implements ItemsServiceI {
 		
 		Items item = itemsMapper.selectByPrimaryKey(id);
 		
-		ItemsCustom itemc = new ItemsCustom();
-		
-		BeanUtils.copyProperties(item, itemc);
+		ItemsCustom itemc = null;
+		if(item!=null){
+			itemc = new ItemsCustom();
+			
+			BeanUtils.copyProperties(item, itemc);
+		}
 		
 		return itemc;
 	}

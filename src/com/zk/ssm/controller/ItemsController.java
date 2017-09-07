@@ -41,6 +41,7 @@ public class ItemsController {
 	@RequestMapping(value="/selectItems",method={RequestMethod.GET,RequestMethod.POST})
 	public String selectItems(Model model,ItemsQueryVo itemsQueryVo) throws Exception{
 
+		
 		List<ItemsCustom> items = itemsService.selectItems(itemsQueryVo);
 		
 		
@@ -60,17 +61,21 @@ public class ItemsController {
 	 * @date 2017年9月6日 上午8:36:57
 	 * @version 1.0
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping("/editAItem")
-	public String editAItem(Model model,@RequestParam("id")String id){
+	public String editAItem(Model model,@RequestParam("id")String id) throws Exception{
 		
 		try {
 			ItemsCustom itemsCustom = itemsService.selectAItem(id);
+			
+			Util.eject(itemsCustom == null, "商品不存在!");
 			
 			model.addAttribute("itemsCustom", itemsCustom);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw e;
 		}
 		
 		return "items/editItem";
