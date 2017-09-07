@@ -21,21 +21,14 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
-		<url-pattern>*.action</url-pattern>
-	</servlet-mapping>
-	<!-- RESTful规范的前端控制器 -->
-	<servlet>
-		<servlet-name>springmvc_RESTful</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:spring/springmvc.xml</param-value>
-		</init-param>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>springmvc_RESTful</servlet-name>
+		<!-- 
+			实现符合RESTful规范的url路径必须使用该配置方式,不能使用*.action的方式;
+			但是这种方式会导致客户端无法访问静态文件(如访问js，css，img等文件会出现404),因为前端控制器不能将一个静态文件作为handler解析;
+			为解决这个问题:我们可以在springmvc的配置文件中过滤掉前端控制器对静态文件的解析;
+		 -->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
 	<!-- ********配置springmvc前端控制器 end******** -->
 	
 	

@@ -15,6 +15,20 @@
 	
 	
 	
+	
+	<!-- 配置springmvc不解析的静态资源 start -->
+	<mvc:resources location="/plugin/" mapping="/plugin/**"></mvc:resources>
+	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
+	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
+	<mvc:resources location="/img/" mapping="/img/**"></mvc:resources>
+	<!-- 配置springmvc不解析的静态资源 end -->
+	
+	
+	
+	
+	
+	
+	
     <!-- *********配置试图解析器 start********* -->
 	<!-- *视图解析器 --> 
 	<!-- **解析jsp,默认使用jstl标签 -->            
