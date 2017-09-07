@@ -2,15 +2,32 @@ package com.zk.ssm.po;
 
 import java.math.BigDecimal;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+
+import com.zk.ssm.validation.ValidGroup0;
+
 public class Items {
     private String id;
 
+    @Length(min=1,max=40,message="{items.name.length.error}")
     private String name;
 
-    private String description;
-
+    @NotBlank(message="{items.description.notblack.error}")
+    private String description; 
+    
+    //使用@Min或者@DecimalMin无效,需要使用@NotNull
+    @NotNull(message="{items.price.notnull.error}",groups={ValidGroup0.class})
+    @DecimalMin(value="0",message="{items.price.min.error}",groups={ValidGroup0.class})
     private BigDecimal price;
 
+    //使用@Min或者@DecimalMin无效,需要使用@NotNull
+    @NotNull(message="{items.quantity.notnull.error}",groups={ValidGroup0.class})
+    @Min(value=0,message="{items.quantity.min.error}",groups={ValidGroup0.class})
     private Integer quantity;
 
     public String getId() {

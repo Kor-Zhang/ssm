@@ -12,6 +12,12 @@ package com.zk.ssm.po;
  */
 public class ItemsCustom extends Items{
 
+	
+	
+	public ItemsCustom() {
+		super();
+	}
+
 	@Override
 	public String toString() {
 		return "ItemsCustom [getId()=" + getId() + ", getName()=" + getName()

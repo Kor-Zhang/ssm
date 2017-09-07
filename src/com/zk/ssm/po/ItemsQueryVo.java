@@ -1,5 +1,7 @@
 package com.zk.ssm.po;
 
+import javax.validation.Valid;
+
 
 /**
  * Title:ItemsVo
@@ -11,8 +13,11 @@ package com.zk.ssm.po;
  * @version 1.0
  */
 public class ItemsQueryVo{
+	
+	@Valid
 	private Items item;
 	
+	@Valid
 	private ItemsCustom itemsCustom;
 
 	public Items getItem() {
@@ -40,6 +45,10 @@ public class ItemsQueryVo{
 		super();
 		this.item = item;
 		this.itemsCustom = itemsCustom;
+	}
+
+	public ItemsQueryVo() {
+		super();
 	}
 	
 	

@@ -21,8 +21,14 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
-		<url-pattern>*.action</url-pattern>
+		<!-- 
+			实现符合RESTful规范的url路径必须使用该配置方式,不能使用*.action的方式;
+			但是这种方式会导致客户端无法访问静态文件(如访问js，css，img等文件会出现404),因为前端控制器不能将一个静态文件作为handler解析;
+			为解决这个问题:我们可以在springmvc的配置文件中过滤掉前端控制器对静态文件的解析;
+		 -->
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
 	<!-- ********配置springmvc前端控制器 end******** -->
 	
 	
@@ -35,12 +41,27 @@
 	<!-- ********配置spring start******** -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring/spring-base.xml</param-value>
+		<param-value>classpath:spring/spring-*.xml</param-value>
 	</context-param>
 	
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	
+	<!-- 配置编码过滤器 start -->
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 配置编码过滤器 end -->
 	
 	<!-- ********配置spring end******** -->
 	
