@@ -10,9 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.alibaba.druid.util.IOUtils;
@@ -171,4 +173,29 @@ public class ItemsController {
 		
 		return "redirect:/items/selectItems.action";
 	}
+	
+	
+	
+	/**
+	 * Title:itemsView
+	 * <p>
+	 * Description:查询一个商品,返回json格式
+	 * <p>
+	 * @author Kor_Zhang
+	 * @date 2017年9月7日 下午2:11:48
+	 * @version 1.0
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
+	//itemsView/{id}表示将路径的内容保存为{id:"xx"}的键值对格式
+	//@PathVariable("id")表示取出键为id的值
+	@RequestMapping("/itemsView/{id}")
+	public @ResponseBody ItemsCustom itemsView(@PathVariable("id") String id) throws Exception{
+		
+		return itemsService.selectAItem(id);
+		
+	}
+	
+	
 }

@@ -34,7 +34,7 @@
     <!-- *********配置注解驱动 start********* -->
 	<!-- 
 		*使用注解驱动可以代替注解映射器和注解适配器的配置;
-		默认加载了许多参数方法,比如json转化解析器;
+		默认加载了许多参数方法,比如json转化解析器(jackson);
 		实际开发用<mvc:annotation-driven></mvc:annotation-driven>
 		*conversion-service声明类型转换器
 		*validator声明校验器
