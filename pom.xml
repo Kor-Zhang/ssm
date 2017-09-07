@@ -153,6 +153,19 @@
 			<version>1.2.1</version>
 		</dependency>
 		<!-- springmvc上传文件等功能所需jar end -->
+		
+		<!-- springmvc json交互功能所需jar start -->
+		<dependency>
+		    <groupId>org.codehaus.jackson</groupId>
+		    <artifactId>jackson-core-asl</artifactId>
+		    <version>1.9.13</version>
+		</dependency> 
+		<dependency>
+		    <groupId>org.codehaus.jackson</groupId>
+		    <artifactId>jackson-mapper-asl</artifactId>
+		    <version>1.9.13</version>
+		</dependency>
+		<!-- springmvc json交互功能所需jar end -->
 		<dependency>
 			<groupId>dom4j</groupId>
 			<artifactId>dom4j</artifactId>
