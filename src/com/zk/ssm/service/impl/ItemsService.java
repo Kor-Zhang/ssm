@@ -51,12 +51,7 @@ public class ItemsService implements ItemsServiceI {
 	 * @see com.zk.ssm.service.ItemsServiceI#updateAItem(java.lang.String, com.zk.ssm.po.ItemsCustom)
 	 */
 	@Override
-	public void updateAItem(String id,ItemsQueryVo itemsQueryVo) throws Exception {
-		
-		Util.eject(id == null || id.equals(""), "id不能为空");
-		
-		
-		itemsQueryVo.getItemsCustom().setId(id);
+	public void updateAItem(ItemsQueryVo itemsQueryVo) throws Exception {
 		
 		itemsMapper.updateByPrimaryKeySelective(itemsQueryVo.getItemsCustom());
 		

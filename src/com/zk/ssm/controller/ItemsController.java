@@ -8,10 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.alibaba.druid.stat.TableStat.Mode;
 import com.zk.ssm.po.ItemsCustom;
 import com.zk.ssm.po.ItemsQueryVo;
 import com.zk.ssm.service.ItemsServiceI;
@@ -63,9 +65,9 @@ public class ItemsController {
 	public String editAItem(Model model,@RequestParam("id")String id){
 		
 		try {
-			ItemsCustom item = itemsService.selectAItem(id);
+			ItemsCustom itemsCustom = itemsService.selectAItem(id);
 			
-			model.addAttribute("item", item);
+			model.addAttribute("itemsCustom", itemsCustom);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -89,9 +91,9 @@ public class ItemsController {
 	//pojo后加BindingResult
 	//一个pojo的@Validated对应其BindingResult(一前一后)
 	@RequestMapping("/updateAItem")
-	public String updateAItem(Model model,String id,
+	public String updateAItem(Model model,
 			@Validated(value={ValidGroup0.class}) ItemsQueryVo itemsQueryVo,BindingResult bindingResult){
-
+		
 		try {
 		//获取结果信息
 			if(bindingResult.hasErrors()){
@@ -104,15 +106,15 @@ public class ItemsController {
 				
 			}
 			
-			itemsService.updateAItem(id, itemsQueryVo);
+			itemsService.updateAItem(itemsQueryVo);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-
-			model.addAttribute("id", id);
+			//回显数据
+			model.addAttribute("itemsCustom",itemsQueryVo.getItemsCustom());
 			//出错,到达修改页面
 			
-			return "forward:/items/editAItem.action";
+			return "items/editItem";
 		}
 		
 		return "redirect:/items/selectItems.action";
